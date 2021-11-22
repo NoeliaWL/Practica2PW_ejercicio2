@@ -313,6 +313,9 @@ public class GestorUsuarios {
 		EspectadoresDTO espectador = new EspectadoresDTO();
 		EspectadoresDAO espectadoresDAO = new EspectadoresDAO();
 		
+		System.out.println("correo: " + correo);
+		System.out.println("datos get sql: " + datos.getSQL());
+		
 		espectador.setCorreo(correo);
 		
 		espectadorConsultado = espectadoresDAO.consultarUsuario(espectador, datos);

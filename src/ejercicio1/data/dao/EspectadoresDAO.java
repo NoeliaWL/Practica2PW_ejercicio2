@@ -214,9 +214,6 @@ public class EspectadoresDAO {
 			
 			ResultSet rs = ps.executeQuery();
 			
-			System.out.println("nombre: " + rs.getString("nombre"));
-			System.out.println("fechaRegistro: " + rs.getString("fechaRegistro"));
-			
 			while(rs.next()){
 				String nombre = rs.getString("nombre");
 				String apellidos = rs.getString("apellidos");
@@ -224,9 +221,6 @@ public class EspectadoresDAO {
 				String correo = rs.getString("correo");
 				String fechaRegistro = rs.getString("fechaRegistro");
 				String ultimaConexion = rs.getString("ultimaConexion");
-				
-				System.out.println("nombre: " + nombre);
-				System.out.println("fechaRegistro: " + fechaRegistro);
 				
 				result = new EspectadoresDTO();
 				result.setNombre(nombre);
@@ -258,6 +252,7 @@ public class EspectadoresDAO {
 		try{
 			Properties prop = new Properties();
 			prop = datos.getSQL();
+			
 			BDConnection dbconnection = new BDConnection();
 			Connection con = dbconnection.getConnection(datos);
 			
