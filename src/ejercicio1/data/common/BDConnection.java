@@ -12,7 +12,7 @@ public class BDConnection {
 
 	public Connection getConnection(BDBean datos) {
 		try {
-						
+			System.out.println("Driver Class: " + datos.getDriver());
 			Class.forName(datos.getDriver());
 			this.connection = (Connection) DriverManager.getConnection(datos.getURL(), datos.getUSUARIO(), datos.getPASSWORD());
 			//System.out.println("Conexion abierta");

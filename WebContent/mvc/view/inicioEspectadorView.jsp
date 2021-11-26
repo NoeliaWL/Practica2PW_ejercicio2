@@ -16,6 +16,6 @@
 			<p>Fecha Actual: <%= new java.util.Date() %></p>
 			<p>Fecha de registro de su usuario: <%=fechaRegistro%></p>
 			
-			<input type="button" value="Actualizar Datos" onclick="window.location.href='actualizarDatosController.jsp'">
+			<input type="button" value="Button Prueba" onclick="window.location.href='../controller/actualizarDatosController.jsp'">
 		</body>
 </html>

@@ -14,8 +14,10 @@
 			//Consultar fecha de registro del usuario y nombre del usuario logueado
 			GestorUsuarios gestorU = new GestorUsuarios();	
 			
-			String nombre = gestorU.ConsultarUsuariosEspectadores(user.getCorreoUser(), conexion);
-			LocalDateTime fechaRegistro = gestorU.ConsultarFechaRegistroEspectador(user.getCorreoUser(), conexion); 
+			//String nombre = gestorU.ConsultarUsuariosEspectadores(user.getCorreoUser(), conexion);
+			//LocalDateTime fechaRegistro = gestorU.ConsultarFechaRegistroEspectador(user.getCorreoUser(), conexion);
+			String nombre = "Prueba de Usuario";
+			LocalDateTime fechaRegistro = LocalDateTime.now();
 		%>
 	
 			<jsp:forward page="../view/inicioEspectadorView.jsp">

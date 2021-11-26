@@ -37,6 +37,7 @@
 
 			if(status == 2) {
 				user.setCorreoUser(correo);
+				user.setTipo("ADMINISTRADOR");
 				%>
 				<jsp:forward page="inicioAdministradorController.jsp"></jsp:forward>
 				<%

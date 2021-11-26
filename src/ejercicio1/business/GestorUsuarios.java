@@ -2,6 +2,7 @@ package ejercicio1.business;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -308,13 +309,27 @@ public class GestorUsuarios {
 		return buffer.toString();
 	}
 	
+	public Hashtable<String, String> ConsultarUsuarioAdministradores(String correo, BDBean datos) {
+		Hashtable<String, String> resultado = new Hashtable<String, String>();
+		AdministradoresDAO administradorDAO = new AdministradoresDAO();
+		AdministradoresDTO administrador = new AdministradoresDTO();
+		
+		administrador.setCorreo(correo);
+		administrador = administradorDAO.consultarUsuario(administrador, datos);
+		
+		resultado.put("nombre", administrador.getNombre());
+		resultado.put("apellidos", administrador.getApellidos());
+		resultado.put("nick", administrador.getNick());
+		resultado.put("correo", administrador.getCorreo());
+		resultado.put("contrasena", administrador.getContrasena());
+		
+		return resultado;
+	}
+	
 	public String ConsultarUsuariosEspectadores(String correo, BDBean datos) {
 		EspectadoresDTO espectadorConsultado;
 		EspectadoresDTO espectador = new EspectadoresDTO();
 		EspectadoresDAO espectadoresDAO = new EspectadoresDAO();
-		
-		System.out.println("correo: " + correo);
-		System.out.println("datos get sql: " + datos.getSQL());
 		
 		espectador.setCorreo(correo);
 		
@@ -323,6 +338,23 @@ public class GestorUsuarios {
 		System.out.println(espectadorConsultado.getNombre());
 		
 		return espectadorConsultado.getNombre();
+	}
+	
+	public Hashtable<String, String> ConsultarUsuarioEspectadores(String correo, BDBean datos) {
+		Hashtable<String, String> resultado = new Hashtable<String, String>();
+		EspectadoresDAO espectadorDAO = new EspectadoresDAO();
+		EspectadoresDTO espectador = new EspectadoresDTO();
+		
+		espectador.setCorreo(correo);
+		espectador = espectadorDAO.consultarUsuario(espectador, datos);
+		
+		resultado.put("nombre", espectador.getNombre());
+		resultado.put("apellidos", espectador.getApellidos());
+		resultado.put("nick", espectador.getNick());
+		resultado.put("correo", espectador.getCorreo());
+		resultado.put("contrasena", espectador.getContrasena());
+		
+		return resultado;
 	}
 	
 	public LocalDateTime ConsultarFechaRegistroEspectador(String correo, BDBean datos) {

@@ -12,11 +12,12 @@
 		<jsp:useBean id="conexion" class="ejercicio2.display.javabean.BDBean" scope="session"></jsp:useBean>
 		<%
 			String correo = request.getParameter("correoUser");
-		
+			String administradores = request.getParameter("admin");
 			//Consulta para rescatar datos de todos los usuarios
 			/*GestorUsuarios gestorU = new GestorUsuarios();
 			
 			ArrayList<Hashtable<String, String>> administradores = gestorU.ConsultarUsuariosAdministradores(conexion);*/
+			out.println("Tabla Administradores: \n" + administradores);
 		%>
 		
 		<p><%=correo %></p>

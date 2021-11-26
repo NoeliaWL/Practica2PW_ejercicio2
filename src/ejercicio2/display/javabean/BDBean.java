@@ -48,6 +48,7 @@ public class BDBean implements java.io.Serializable {
 	public Properties getSQL() {
 		try {
 			prop = new Properties();
+			System.out.println(fichero);
 			prop.load(fichero);
 		}
 		catch(Exception e) {

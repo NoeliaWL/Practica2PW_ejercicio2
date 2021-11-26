@@ -37,9 +37,8 @@
 						
 			if(status == 2) {
 				user.setCorreoUser(correo);
-				%>
-				<jsp:forward page="inicioEspectadorController.jsp"></jsp:forward>
-				<%
+				user.setTipo("ESPECTADOR");
+				response.sendRedirect("inicioEspectadorController.jsp");
 			}
 			else if(status == 1) {
 				user.setMensaje("Contraseña incorrecta.");
